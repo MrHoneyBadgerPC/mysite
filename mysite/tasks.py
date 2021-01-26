@@ -3,7 +3,7 @@
 from celery import Celery
 from celery import shared_task
 
-app = Celery('tasks', broker='pyamqp://guest@localhost//')
+app = Celery('tasks', broker='pyamqp://guest@localhost//', backend='amqp')
 
 @app.task
 def add(x, y):
