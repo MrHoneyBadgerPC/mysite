@@ -71,6 +71,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+#Test runner for celery tasks... Not Needed As Of Yet
+#TEST_RUNNER ='djcelery.contrib.test_runner.CeleryTestSuiteRunner'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases

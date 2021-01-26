@@ -4,8 +4,10 @@ from __future__ import unicode_literals
 import datetime
 
 from django.test import TestCase
+from django.test.utils import override_settings
 from django.utils import timezone
 from django.urls import reverse
+from mysite.tasks import add
 
 from .models import Question
 
@@ -88,3 +90,13 @@ class QuestionDetailViewTests(TestCase):
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
 
+class CeleryAddTestCase(TestCase):
+
+    @override_settings(CELERY_EAGER_PROPOGATES_EXCEPTIONS=True,
+                       CELERY_ALWAYS_EAGER=True,
+                       BROKER_BACKEND='memory')
+
+    def test_add_task(self):
+        result = add.delay(4, 4)
+        self.assertEquals(result.get(),8)
+        self.assertTrue(result.successful())
