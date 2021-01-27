@@ -3,7 +3,7 @@
 from celery import Celery
 from celery import shared_task
 
-app = Celery('tasks', broker='pyamqp://guest@localhost//', backend='amqp')
+app = Celery('tasks', backend='rpc://', broker='pyamqp://')
 
 @app.task(bind=True)
 def debug_task(self):
