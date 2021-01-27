@@ -94,7 +94,7 @@ class CeleryAddTestCase(TestCase):
 
     @override_settings(CELERY_EAGER_PROPOGATES_EXCEPTIONS=True,
                        CELERY_ALWAYS_EAGER=True,
-                       BROKER_BACKEND='memory')
+                       BROKER_BACKEND='cachedb')
 
     def test_add_task(self):
         result = add.delay(4, 4)
