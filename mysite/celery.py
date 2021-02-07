@@ -16,7 +16,7 @@ app = Celery('mysite',
 app.conf.update(result_expires=3600,)
 
 
-app.config_from_object('django.conf:settings', 'CELERY')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 
 
-app.autodiscover_tasks(settings.INSTALLED_APPS)
+app.autodiscover_tasks()
