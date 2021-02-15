@@ -21,7 +21,7 @@ def mul(x, y):
 def xsum(numbers):
     return sum(numbers)
 
-#
+# Force a fail
 @shared_task
 def Assert_True_Failure():
     return Assert_True(False)
