@@ -1,0 +1,8 @@
+<h1> Text processor </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong><p/>{% endif %}
+
+<form action="{% url 'polls:LongTask' %}" method="post">
+{% csrf_token %}
+    <button onclick="LongTask()">Click to read num of Words in file</button>
+</form>
