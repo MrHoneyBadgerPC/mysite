@@ -8,7 +8,7 @@ from django.conf import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
 app = Celery('mysite',
-             broker='amqp://',
+             broker='amqp://guest@localhost//',
              backend='rpc://',
              include=['mysite.tasks']
              )

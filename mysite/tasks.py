@@ -20,3 +20,8 @@ def mul(x, y):
 @shared_task
 def xsum(numbers):
     return sum(numbers)
+
+#
+@shared_task
+def Assert_True_Failure():
+    return Assert_True(False)
