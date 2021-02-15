@@ -3,7 +3,7 @@
 from celery import Celery
 from celery import shared_task
 
-app = Celery('tasks', backend='rpc://', broker='pyamqp://')
+app = Celery('mysite', backend='rpc://', broker='pyamqp://')
 
 @shared_task
 def add(x, y):
@@ -20,3 +20,8 @@ def div(x, y):
 @shared_task
 def xsum(numbers):
     return sum(numbers)
+
+# Force a fail
+@shared_task
+def Assert_True_Failure():
+    return Assert_True(False)

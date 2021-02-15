@@ -1,5 +1,5 @@
 broker_url = 'pyamqp://'
-result_backend = 'rpc://'
+result_backend = 'amqp://'
 
 task_serializer = 'json'
 result_serializer = 'json'

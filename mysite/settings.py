@@ -71,7 +71,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+<<<<<<< HEAD
 # Test runner for celery tasks
+=======
+# Test runner for celery tasks... Not Needed As Of Yet
+>>>>>>> b9f90b380a7ff55ef83e423acba5405bd8187e5e
 TEST_RUNNER ='djcelery.contrib.test_runner.CeleryTestSuiteRunner'
 
 # Database
@@ -125,7 +129,7 @@ STATIC_URL = '/static/'
 
 # Celery configuration options
 CELERY_RESULT_BACKEND = 'django-db'
-#CELERY_RESULT_BACKEND = 'django-cache'
+CELERY_RESULT_BACKEND = 'django-cache'
 #CELERY_TIMEZONE = "Europe/London"
 #CELERY_TASK_TRACK_STARTED = True
 #CELERY_TASK_TIME_LIMIT = 30 * 60
